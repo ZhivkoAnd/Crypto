@@ -3,13 +3,14 @@ import styled from "styled-components";
 const CryptoCoin = ({ coin }) => {
   return (
     <Container>
-      <h2>{coin.name}</h2>
-      <h2>{coin.current_price}</h2>
+      <img alt="crypto" className="image" src={coin.image}></img>
+      <h3 className="h22">{coin.name}</h3>
+      <h3>{coin.current_price}</h3>
       {coin.id === "bitcoin" ? (
-        <h2> $ {Math.round(coin.current_price * 0.01001578)}</h2>
+        <h3>${Math.round(coin.current_price * 0.01001578)}</h3>
       ) : null}
       {coin.id === "dogecoin" ? (
-        <h2> $ {Math.round(coin.current_price * 543)}</h2>
+        <h3>${Math.round(coin.current_price * 543)}</h3>
       ) : null}
     </Container>
   );
@@ -18,7 +19,16 @@ const CryptoCoin = ({ coin }) => {
 export default CryptoCoin;
 
 const Container = styled.div`
+  padding: 15px 15px;
   display: flex;
-  width: 100vw;
-  justify-content: space-evenly;
+  -webkit-box-align: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+
+  .image {
+    width: 40px;
+    height: 40px;
+  }
 `;

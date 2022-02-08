@@ -1,6 +1,6 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import CryptoGrid from "./components/CryptoGrid";
+import styled from "styled-components";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -14,17 +14,25 @@ function App() {
       setCoins(fetchedData);
     };
     fetchData();
-  }, []);
+  }, [coins]);
 
   const filteredCoins = coins.filter((e) => {
     return e.id === "bitcoin" || e.id === "dogecoin";
   });
 
   return (
-    <div className="container">
-      <CryptoGrid filteredCoins={filteredCoins}></CryptoGrid>
-    </div>
+    <Container>
+      <div className="container">
+        <CryptoGrid filteredCoins={filteredCoins}></CryptoGrid>
+      </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  background-color: #f3f3f3;
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+`;
 
 export default App;
