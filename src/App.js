@@ -33,6 +33,7 @@ const Container = styled.div`
   background-color: #f3f3f3;
   font-family: "Poppins", sans-serif;
   height: 100vh;
+  font-size: 13px;
 `;
 
 export default App;
